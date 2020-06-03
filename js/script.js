@@ -129,6 +129,12 @@ printQuote();
  * DO NOT CHANGE THE CODE BELOW!!
  ***/
 
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+setInterval(function () {
+  printQuote();
+  getRandomColor();
+}, 5000);
 
-document.getElementById('load-quote').addEventListener("click", getRandomColor, false);
+document.getElementById('load-quote').addEventListener("click", () => {
+  printQuote();
+  getRandomColor();
+}, false);

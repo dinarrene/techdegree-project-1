@@ -58,6 +58,7 @@ let quotes = [{
     source: "Dory",
     citation: "Finding Nemo",
     // year: 2003
+    tags: "Children's Animation"
   },
   {
     quote: "Nobody is gonna hit as hard as life, but it ain’t how hard you can hit. It’s how hard you can get hit and keep moving forward.",
@@ -69,14 +70,28 @@ let quotes = [{
     quote: "What we do in life echoes in eternity.",
     source: "Maximus Decimus Meridius",
     // citation: "Gladiator",
-    year: 2000
+    year: 2000,
+    tags: "Action & Adventure"
   },
 ]
 
 let randNum;
-let obj;
+let randNumRGB;
 let quote;
 let message = '';
+
+/***
+ * `getRandomQuote` function
+ ***/
+function randomRGB(){
+  return Math.floor(Math.random() * 256);
+}
+
+function getRandomColor() {
+  let color = `rgb(${randomRGB()},${randomRGB()},${randomRGB()})`;
+  document.body.style.backgroundColor = color;
+ }
+
 
 /***
  * `getRandomQuote` function
@@ -92,6 +107,9 @@ function getRandomQuote() {
   if (quote.year) {
     message += `<span class="year">${quote.year}</span>`;
   }
+  if (quote.tags) {
+    message += `<span class="tags">${quote.tags}</span>`;
+  }
   message += `</p>`;
 }
 
@@ -104,7 +122,7 @@ function printQuote() {
   document.getElementById('quote-box').innerHTML = message;
 }
 
-console.log(printQuote());
+printQuote();
 
 /***
  * click event listener for the print quote button
@@ -112,3 +130,5 @@ console.log(printQuote());
  ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
+
+document.getElementById('load-quote').addEventListener("click", getRandomColor, false);

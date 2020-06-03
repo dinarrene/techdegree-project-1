@@ -11,8 +11,7 @@ project 1 - A Random Quote Generator
  * `quotes` array 
  ***/
 
-let quotes = [
-  {
+let quotes = [{
     quote: "Oh yes, the past can hurt. But you can either run from it, or learn from it.",
     source: "Rafiki",
     citation: "The Lion King",
@@ -58,7 +57,7 @@ let quotes = [
     quote: "Just keep swimming. Just keep swimming. Just keep swimming, swimming, swimming.",
     source: "Dory",
     citation: "Finding Nemo",
-    year: 2003
+    // year: 2003
   },
   {
     quote: "Nobody is gonna hit as hard as life, but it ain’t how hard you can hit. It’s how hard you can get hit and keep moving forward.",
@@ -69,22 +68,43 @@ let quotes = [
   {
     quote: "What we do in life echoes in eternity.",
     source: "Maximus Decimus Meridius",
-    citation: "Gladiator",
+    // citation: "Gladiator",
     year: 2000
   },
 ]
+
+let randNum;
+let obj;
+let quote;
+let message = '';
 
 /***
  * `getRandomQuote` function
  ***/
 
-
+function getRandomQuote() {
+  randNum = Math.floor(Math.random() * quotes.length);
+  quote = quotes[randNum];
+  message = `<p class="quote">${quote.quote}</p><p class="source">${quote.source}`;
+  if (quote.citation) {
+    message += `<span class="citation">${quote.citation}</span>`
+  }
+  if (quote.year) {
+    message += `<span class="year">${quote.year}</span>`;
+  }
+  message += `</p>`;
+}
 
 /***
  * `printQuote` function
  ***/
 
+function printQuote() {
+  getRandomQuote();
+  document.getElementById('quote-box').innerHTML = message;
+}
 
+console.log(printQuote());
 
 /***
  * click event listener for the print quote button

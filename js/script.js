@@ -7,9 +7,9 @@ project 1 - A Random Quote Generator
 // Check the "Project Resources" section of the project instructions
 // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
-/*** 
- * `quotes` array 
- ***/
+/** 
+ * Quotes array
+ **/
 
 let quotes = [{
     quote: "Oh yes, the past can hurt. But you can either run from it, or learn from it.",
@@ -75,17 +75,27 @@ let quotes = [{
   },
 ]
 
+
 let randNum;
 let randNumRGB;
 let quote;
 let message = '';
 
-/***
- * `getRandomQuote` function
- ***/
+/**
+ * randomRGB function to create single random RGB value
+ * function code from Treehouse lesson
+ **/
+
 function randomRGB(){
   return Math.floor(Math.random() * 256);
 }
+
+/**
+ * getRandomColor function
+ * generate random RGB value
+ * apply value to <body> backgroundColor
+ * rgb literal code from Treehouse lesson
+ **/
 
 function getRandomColor() {
   let color = `rgb(${randomRGB()},${randomRGB()},${randomRGB()})`;
@@ -94,7 +104,9 @@ function getRandomColor() {
 
 
 /***
- * `getRandomQuote` function
+ * getRandomQuote function 
+ * generate random number and use number to select object from quote array
+ * saves template literal string in message variable
  ***/
 
 function getRandomQuote() {
@@ -114,7 +126,10 @@ function getRandomQuote() {
 }
 
 /***
- * `printQuote` function
+ * printQuote function
+ * calls getRandomQuote function
+ * inserts html string from getRandomQuote() into index file
+ * DOM selector code provided by Treehouse
  ***/
 
 function printQuote() {
@@ -125,14 +140,19 @@ function printQuote() {
 printQuote();
 
 /***
- * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
+ * setInterval function 
+ * calls printQuote and getRandomColor function at 5 second intervals to refresh color and quote block
  ***/
 
 setInterval(function () {
   printQuote();
   getRandomColor();
 }, 5000);
+
+/***
+ * eventListener code provide with starter files
+ * listens for click button click event and calls printQuote and gerRandomColor functions
+ ***/
 
 document.getElementById('load-quote').addEventListener("click", () => {
   printQuote();

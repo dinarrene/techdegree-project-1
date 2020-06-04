@@ -92,8 +92,8 @@ function randomRGB(){
 
 /**
  * getRandomColor function
- * generate random RGB value
- * apply value to <body> backgroundColor
+ * generates random RGB value
+ * applies value to <body> backgroundColor
  * rgb literal code from Treehouse lesson
  **/
 
@@ -141,7 +141,7 @@ printQuote();
 
 /***
  * setInterval function 
- * calls printQuote and getRandomColor function at 5 second intervals to refresh color and quote block
+ * calls printQuote and getRandomColor functions at 5 second intervals to refresh color and quote block
  ***/
 
 setInterval(function () {
@@ -150,8 +150,8 @@ setInterval(function () {
 }, 5000);
 
 /***
- * eventListener code provide with starter files
- * listens for click button click event and calls printQuote and gerRandomColor functions
+ * eventListener code provided with starter files
+ * listens for button click event and calls printQuote and gerRandomColor functions
  ***/
 
 document.getElementById('load-quote').addEventListener("click", () => {
